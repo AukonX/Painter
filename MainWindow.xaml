@@ -1,0 +1,67 @@
+﻿<Window x:Class="Painter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Painter"
+        mc:Ignorable="d"
+        Title="Painter - Jan Mierzwa" Height="450" Width="800">
+
+    <Grid>
+
+        <Canvas x:Name="Surface" MouseDown="Surface_MouseDown" MouseMove="Surface_MouseMove" MouseLeftButtonDown="Surface_MouseLeftButtonDown" MouseRightButtonDown="Surface_MouseRightButtonDown" >
+
+            <Canvas.Background>
+                <SolidColorBrush Color="White" Opacity="1"/>
+            </Canvas.Background>
+
+        </Canvas>
+
+        <ToolBarPanel>
+
+            <ToolBar VerticalAlignment="Top">
+                <Menu>
+                    <MenuItem Header="Plik">
+                        <MenuItem Header="Zapisz jako" x:Name="button_save" Click="button_save_Click"/>
+                    </MenuItem>
+                </Menu>
+                <Button x:Name="button_freeDraw" Click="button_freeDraw_Click">Rysuj Dowolnie</Button>
+                <Button x:Name="button_pointDraw" Click="button_pointDraw_Click">Rysuj Punkty</Button>
+                <Menu>
+                    <MenuItem Header="Odcinki">
+                        <MenuItem Header="Rysuj Odcinki" Click="button_lineDraw_Click" />
+                        <MenuItem x:Name="editLine" Header="Edytuj Odcinki" Click="editLine_Click" />
+                        <MenuItem x:Name="draw_polyline" Header="Rysuj Linie Łamaną" Click="draw_polyline_Click" />
+                    </MenuItem>
+                </Menu>
+                <Menu x:Name="menu_shapeMenu">
+                    <MenuItem Header="Krztałty">
+                        <MenuItem x:Name="drawEllipse" Header="Elipsa" Click="drawEllipse_Click"/>
+                        <MenuItem x:Name="drawRectangle" Header="Prostokąt" Click="drawRectangle_Click"/>
+                        <MenuItem x:Name="drawPolygon" Header="Wielokąt" Click="drawPolygon_Click"/>
+                        <MenuItem x:Name="drawPlus" Header="Plus" Click="drawPlus_Click"/>
+                        <MenuItem x:Name="drawTrapezoid" Header="Trapez" Click="drawTrapezoid_Click"/>
+                        <MenuItem Header="Strzałki">
+                            <MenuItem Header="Strzałka w górę" Name="drawArrowUp" Click="drawArrowUp_Click"/>
+                            <MenuItem Header="Strzałka w prawo" Name="drawArrowRight" Click="drawArrowRight_Click"/>
+                            <MenuItem Header="Strzałka w dół" Name="drawArrowDown" Click="drawArrowDown_Click"/>
+                            <MenuItem Header="Strzałka w lewo" Name="drawArrowLeft" Click="drawArrowLeft_Click"/>
+                        </MenuItem>
+                    </MenuItem>
+                </Menu>
+                <Menu x:Name="imageMenu">
+                    <MenuItem Header="Obraz">
+                        <MenuItem Header="Dodaj obraz" Name="addImage" Click="addImage_Click" />
+                        <MenuItem Header="Edytuj obraz" Name="editImage" Click="editImage_Click"/>
+                    </MenuItem>
+                </Menu>
+                <Button x:Name="Button_eraser" Content="Gumka" Click="Button_eraser_Click"/>
+                <Rectangle x:Name="colorRectangle" Fill="Black" Height="20" Width="20" Margin="2" MouseLeftButtonDown="colorRectangle_MouseLeftButtonDown"/>
+            </ToolBar>
+            
+        </ToolBarPanel>
+
+
+    </Grid>
+    
+</Window>
